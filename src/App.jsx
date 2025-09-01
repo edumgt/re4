@@ -7,7 +7,7 @@ function App() {
   const [profile, setProfile] = useState(null);
 
   const handleLogin = async () => {
-    const res = await fetch("/api/login", {
+    const res = await fetch("https://jubilant-meme-q9rxjp79xp9295q4-3000.app.github.dev/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
@@ -23,7 +23,7 @@ function App() {
   };
 
   const handleGetProfile = async () => {
-    const res = await fetch("/api/profile", {
+    const res = await fetch("https://jubilant-meme-q9rxjp79xp9295q4-3000.app.github.dev/api/profile", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await res.json();
