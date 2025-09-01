@@ -1,36 +1,3 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-
-Node + Vite 기반으로 프로젝트를 시작하려면 크게 두 가지 케이스가 있어요:
-
-1. 순수 Vite + React(or Vue, Svelte 등) 프론트엔드
-
-Vite는 빌드 도구라서 Node 서버 없이도 프론트엔드만 실행할 수 있습니다.
-
-# 새 프로젝트 생성
-npm create vite@latest my-app
-cd my-app
-
-# 의존성 설치
-npm install
-
-# 개발 서버 실행
-npm run dev
-
-
-👉 기본적으로 http://localhost:5173 에서 열립니다.
-
 2. Node(Express 등) + Vite 함께 사용
 
 보통 API 서버는 Node(Express), 프론트엔드는 Vite로 따로 구성하고 프록시(proxy) 설정으로 연결합니다.
