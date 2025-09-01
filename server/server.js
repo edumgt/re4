@@ -10,7 +10,11 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(bodyParser.json());
 
 // Mock 사용자 데이터
-const users = [{ id: 1, username: "admin", password: "1234" }];
+const users = [
+  { id: 1, username: "admin", password: "1234" }
+  , { id: 2, username: "superadmin", password: "12345678" }
+
+];
 
 // 로그인 API
 app.post("/api/login", (req, res) => {
@@ -26,7 +30,12 @@ app.post("/api/login", (req, res) => {
     expiresIn: "1h",
   });
 
+
+  console.log("✅ 발급된 JWT:", token);
+
   res.json({ token });
+
+
 });
 
 // 보호된 API 예시
