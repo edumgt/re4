@@ -6,14 +6,18 @@ import bodyParser from "body-parser";
 const app = express();
 const SECRET_KEY = "my-secret"; // 실제 서비스에서는 .env 로 관리하세요
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+// ✅ 오직 6000만 허용
+app.use(cors({
+  origin: "http://localhost:6000",
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 
 // Mock 사용자 데이터
 const users = [
-  { id: 1, username: "admin", password: "1234" }
-  , { id: 2, username: "superadmin", password: "12345678" }
-
+  { id: 1, username: "admin", password: "1234" },
+  { id: 2, username: "superadmin", password: "12345678" }
 ];
 
 // 로그인 API
@@ -30,15 +34,11 @@ app.post("/api/login", (req, res) => {
     expiresIn: "1h",
   });
 
-
   console.log("✅ 발급된 JWT:", token);
-
   res.json({ token });
-
-
 });
 
-// 보호된 API 예시
+// 보호된 API
 app.get("/api/profile", (req, res) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
