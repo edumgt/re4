@@ -8,9 +8,9 @@ import swaggerJsdoc from "swagger-jsdoc";
 const app = express();
 const SECRET_KEY = "my-secret"; // 실제 서비스에서는 .env 로 관리하세요
 
-// ✅ 오직 6000만 허용
+
 app.use(cors({
-  origin: "http://localhost:6000",
+  origin: "http://localhost:5173",
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -137,4 +137,5 @@ swaggerSpec.components = {
 };
 // ---------------------------------------------------
 
-app.listen(3000, () => console.log("✅ Express API running on http://localhost:3000 (Swagger: http://localhost:3000/api-docs)"));
+app.listen(3000, () => 
+  console.log("✅ Express API running on http://localhost:3000 (Swagger: http://localhost:3000/api-docs)"));
